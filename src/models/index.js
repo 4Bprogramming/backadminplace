@@ -6,11 +6,11 @@ import { Attendance } from "./Attendance.js";
 import { Factura } from "./Factura.js";
 
 // Relaciones
-Department.hasMany(Employee, { foreignKey: "department_id" });
-Employee.belongsTo(Department, { foreignKey: "department_id" });
+// Department.hasMany(Employee, { foreignKey: "department_id" });
+// Employee.belongsTo(Department, { foreignKey: "department_id" });
 
-Job.hasMany(Employee, { foreignKey: "job_id" });
-Employee.belongsTo(Job, { foreignKey: "job_id" });
+// Job.hasMany(Employee, { foreignKey: "job_id" });
+// Employee.belongsTo(Job, { foreignKey: "job_id" });
 
 Employee.hasMany(Attendance, { foreignKey: "employee_id" });
 Attendance.belongsTo(Employee, { foreignKey: "employee_id" });

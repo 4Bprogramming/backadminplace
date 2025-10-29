@@ -56,19 +56,40 @@ export const getFacturaById = async (req, res, next) => {
 
   // POST factura
 
-export const createFactura = async (req, res, next) => {
 
+  export const createFactura = async (req, res) => {
   try {
-    const facturaCreada = await Factura.create({ ...req.body });
-    if (!facturaCreada)
-      return res
-        .status(401)
-        .send({ message: "La Factura no pudo ser creada." });
-    res.status(200).send({
-      message: "Factura creada con exito.",
-      facturaCreada,
+    lastInvoiceNumber++;
+
+    const nuevaFactura = {
+      invoice_number: lastInvoiceNumber,
+      ...req.body,
+    };
+
+    // guardas en DB
+    await Factura.create(nuevaFactura);
+
+    res.json({
+      invoice_number: nuevaFactura.invoice_number,
+      message: "Factura creada correctamente",
     });
-  } catch (e) {
-    next(e);
+  } catch (error) {
+    res.status(500).json({ error: "Error creando factura" });
   }
 };
+// export const createFactura = async (req, res, next) => {
+
+//   try {
+//     const facturaCreada = await Factura.create({ ...req.body });
+//     if (!facturaCreada)
+//       return res
+//         .status(401)
+//         .send({ message: "La Factura no pudo ser creada." });
+//     res.status(200).send({
+//       message: "Factura creada con exito.",
+//       facturaCreada,
+//     });
+//   } catch (e) {
+//     next(e);
+//   }
+// };
