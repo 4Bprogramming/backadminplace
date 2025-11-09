@@ -5,6 +5,7 @@ export const Factura = sequelize.define("factura", {
   factura_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
+     autoIncrement: true,  
 
   },
   customerName: {
@@ -23,7 +24,7 @@ export const Factura = sequelize.define("factura", {
     type: DataTypes.TEXT,
  },
   date: {
-    type: DataTypes.DATEONLY,
+    type: DataTypes.DATE,
 
   },
   items: {

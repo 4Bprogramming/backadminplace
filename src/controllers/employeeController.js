@@ -22,21 +22,19 @@ export const getEmployees = async (req, res, next) => {
 
 export const createEmployee = async (req, res, next) => {
   try {
-    const { department_id, job_id, salary, ...rest } = req.body;
+    const { salary, ...rest } = req.body;
 
     // Validaciones previas...
     // Conversión a números...
     console.log('Data para crear empleado:', {
       ...rest,
-      department_id: Number(department_id),
-      job_id: Number(job_id),
+   
       salary: salary ? parseFloat(salary) : null,
     });
 
     const newEmployee = await Employee.create({
       ...rest,
-      department_id: Number(department_id),
-      job_id: Number(job_id),
+     
       salary: salary ? parseFloat(salary) : null,
     });
 
@@ -69,7 +67,7 @@ export const getEmployeeById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const employee = await Employee.findByPk(id, {
-      include: [Department, Job],
+     
     });
     if (!employee) return res.status(404).json({ message: "Employee not found" });
     res.json(employee);

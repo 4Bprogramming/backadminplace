@@ -29,22 +29,22 @@ export const Employee = sequelize.define("employee", {
   salary: {
     type: DataTypes.FLOAT,
   },
-  department_id: {
-    type: DataTypes.INTEGER,
+  // department_id: {
+  //   type: DataTypes.INTEGER,
   
-    // references: {
-    //   model: "departments", // nombre tabla en la base
-    //   key: "department_id", // columna PK de Department
-    // },
-  },
-  job_id: {
-    type: DataTypes.INTEGER,
+  //   // references: {
+  //   //   model: "departments", // nombre tabla en la base
+  //   //   key: "department_id", // columna PK de Department
+  //   // },
+  // },
+  // job_id: {
+  //   type: DataTypes.INTEGER,
 
-    // references: {
-    //   model: "jobs", // nombre tabla en la base
-    //   key: "job_id",   // columna PK de Job, asumido aquí, confirmar
-    // },
-  },
+  //   // references: {
+  //   //   model: "jobs", // nombre tabla en la base
+  //   //   key: "job_id",   // columna PK de Job, asumido aquí, confirmar
+  //   // },
+  // },
 }, {
   timestamps: false,
 });

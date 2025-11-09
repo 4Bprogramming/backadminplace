@@ -22,7 +22,8 @@ app.use(morgan("dev"));
 // ✅ Habilita CORS
 app.use(
   cors({
-    origin: "https://adminplace.vercel.app",
+    // origin: "https://adminplace.vercel.app",
+     origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
     credentials: true,
   })
 );

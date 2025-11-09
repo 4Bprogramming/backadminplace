@@ -7,17 +7,36 @@ export const Attendance = sequelize.define("attendance", {
     primaryKey: true,
     autoIncrement: true,
   },
-  date: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-  },
-   cuota: {
+  motivo: {
     type: DataTypes.STRING,
-    allowNull: false,
+   
   },
+  presupuesto: {
+    type: DataTypes.STRING,
+  
+  },
+  abonado: {
+    type: DataTypes.STRING,
+
+  },
+  usado: {
+    type: DataTypes.STRING,
+
+  },
+  total: {
+    type: DataTypes.STRING,
+  
+  },
+
   status: {
-    type: DataTypes.ENUM("vigente", "vencida", "por vencer","pagada"),
+    type: DataTypes.ENUM(
+      "Pendiente",
+      "Recibida",
+      "en Taller",
+      "Terminada",
+      "Entregada"
+    ),
     allowNull: false,
-    defaultValue: "vigente",
+    defaultValue: "Pendiente",
   },
 });
