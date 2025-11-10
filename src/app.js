@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 app.use(
   cors({
     // origin: "https://adminplace.vercel.app",
-     origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
+     origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "https://backadminplace.onrender.com", "https://dascompleta.vercel.app"],
     credentials: true,
   })
 );
